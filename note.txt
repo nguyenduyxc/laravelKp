@@ -1,0 +1,21 @@
+- laravel
+php artisan: show cac cau lenh
+php artisan make:migration: tao migration moi
+php artisan migrate: tao bang trong db
+php artisan tinker: chay php trong day
+    echo bcrypt('123456') : tao mat khau
+php artisan make:controller Admin\Users\LoginController -m: tao controller va model
+php artisan make:model --migration --controller Menu: tao model, controller, model
+
+- validate
+php artisan make:request StorePostRequest
+
+
+- html
+dung ckeditor de tao mota chi tiet
+
+-services
++ dung de su ly model, ko tuong tac truc tiep trong controller
+
+-tao file app/Helpes/Helper: o day dung cho menu de quy
+    + gan vao trong composer.json => chay cau lenh composer dump-autoload
