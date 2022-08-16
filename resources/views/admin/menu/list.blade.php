@@ -1,6 +1,5 @@
 @extends('admin.main')
 @section('content')
-    <h1 class="text-center">Danh sach danh muc</h1>
     <table class="table">
         <thead>
         <tr>

@@ -41,6 +41,19 @@ class MenuController extends Controller
         ]);
     }
 
+
+    public function edit(Menu $menu)
+    {
+//        dd($this->menuService->getParent());
+//        dd($menu->name);
+        return view('admin.menu.edit', [
+            'title' => 'Sua thong tin ' . $menu->name,
+            'menu' => $menu,
+            'menusParent0' => $this->menuService->getParent()
+        ]);
+    }
+
+
     public function destroy(Request $request): JsonResponse
     {
         $result = $this->menuService->destroy($request);

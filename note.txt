@@ -19,3 +19,12 @@ dung ckeditor de tao mota chi tiet
 
 -tao file app/Helpes/Helper: o day dung cho menu de quy
     + gan vao trong composer.json => chay cau lenh composer dump-autoload
+
+
+phan delete menus
+	'.$menu->id.': muon nhung bien vao nơi có '' bên ngoài cùng
+	\'noi dung\': muon viet '' trong "" trong '', vd: (' " \'noi dung\' " ')
+
+
+edit
+    khi truyen id, ben controller public function edit(Menu $menu: no se tra ve ban ghi co id tuong ung

@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/list', [MenuController::class, 'index'])->name('admin.menus.list');
             Route::get('/add', [MenuController::class, 'create'])->name('admin.menus.add');
             Route::post('/add', [MenuController::class, 'store']);
+            Route::get('/edit/{menu}', [MenuController::class, 'edit']);
             Route::DELETE('/destroy', [MenuController::class, 'destroy']);
         });
 

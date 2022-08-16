@@ -54,7 +54,7 @@
                         <!-- jquery validation -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Trang quan tri admin</h3>
+                                <h3 class="card-title">{{ $title }}</h3>
                             </div>
                             <!-- /.card-header -->
 
