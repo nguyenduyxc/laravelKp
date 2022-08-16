@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Menu\CreateCategoryRequest;
+use App\Http\Requests\Menu\UpdateCategoryRequest;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -51,6 +52,14 @@ class MenuController extends Controller
             'menu' => $menu,
             'menusParent0' => $this->menuService->getParent()
         ]);
+    }
+
+    public function update(UpdateCategoryRequest $request, Menu $menu)
+    {
+        $request->validated();
+//            dd($menu);
+        $this->menuService->update($request, $menu);
+        return redirect('admin/menus/list');
     }
 
 

@@ -19,3 +19,16 @@
         {{Session::get('addCategorySuccess')}}
     </div>
 @endif
+
+@if (Session::has('addCategorySuccess'))
+    <div class="alert alert-success mt-3">
+        {{Session::get('addCategorySuccess')}}
+    </div>
+@endif
+@if (Session::has('success'))
+    <div class="alert alert-success mt-3">
+        {{Session::get('success')}}
+    </div>
+@endif
+
+

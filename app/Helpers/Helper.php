@@ -15,7 +15,7 @@ class Helper
                         <tr>
                             <td>' .$menu->id.'</td>
                             <td>' .$char . $menu->name.'</td>
-                            <td>' .$menu->active.'</td>
+                            <td>' . self::active($menu->active).'</td>
                             <td>' .$menu->updated_at.'</td>
                             <td>
                                 <a href="/admin/menus/edit/'.$menu->id.'" class="btn btn-primary btn-sm">
@@ -35,5 +35,11 @@ class Helper
             }
         }
         return $html;
+    }
+
+    public static function active($active = 1):string
+    {
+        return $active == 1 ? '<span class="btn btn-sm btn-primary">yes</span>'
+            : '<span class="btn btn-sm btn-danger">no</span>';
     }
 }
