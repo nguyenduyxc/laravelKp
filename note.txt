@@ -7,6 +7,18 @@ php artisan tinker: chay php trong day
 php artisan make:controller Admin\Users\LoginController -m: tao controller va model
 php artisan make:model --migration --controller Menu: tao model, controller, model
 
+php artisan make:controller Admin\ProductController --resource : tao controller vs crud
+php artisan make:model product -m: tao migartion vs model
+
+update migration:
+php artisan make:migration update_table_product: tao migration moi
+viet tren phan up: ten table va them ten cot
+            Schema::table('products', function (Blueprint $table) {
+                $table->string('thumn')->after('active');
+            });
+chay: php artisan migrate
+
+
 - validate
 php artisan make:request StorePostRequest
 

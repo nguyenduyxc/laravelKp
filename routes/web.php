@@ -33,5 +33,13 @@ Route::middleware(['auth'])->group(function () {
             Route::DELETE('/destroy', [MenuController::class, 'destroy']);
         });
 
+
+//        product
+        Route::prefix('products')->group(function () {
+
+        });
+
+
+
     });
 });
