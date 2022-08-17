@@ -40,3 +40,20 @@ phan delete menus
 
 edit
     khi truyen id, ben controller public function edit(Menu $menu: no se tra ve ban ghi co id tuong ung
+
+
+             <div id="image_show">
+
+                </div>
+                <input type="hidden" id="thumn" name="thumn" >
+
+upload file
++ php artisan storage:link: tao shortcut storage trong pulic
++ duong dan luu file
+              $file = $request->file('file');
+              $name = $file->getClientOriginalName();
+  //            dd($name); // ten file
+              $path = $request->file('file')->storeAs(
+                  'public/uploads/' . date('Y/m/d'), $name
+              );
+

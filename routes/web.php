@@ -36,10 +36,11 @@ Route::middleware(['auth'])->group(function () {
 
 //        product
         Route::prefix('products')->group(function () {
-
+            Route::get('/add', [\App\Http\Controllers\Admin\ProductController::class, 'create'])->name('admin.products.add');
+            Route::get('/list', [\App\Http\Controllers\Admin\ProductController::class, 'index'])->name('admin.products.list');
         });
 
-
-
+//            upload
+        Route::post('upload/services', [\App\Http\Controllers\Admin\UploadController::class, 'store']);
     });
 });

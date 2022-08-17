@@ -32,9 +32,11 @@
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
+
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
+                {{--            danh muc--}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="fas fa-bars"></i> &nbsp;
@@ -59,9 +61,38 @@
                     </ul>
                 </li>
 
+{{--                san pham --}}
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-house"></i> &nbsp;
+                        <p>
+                            san pham
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.products.list')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sach san pham</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.products.add')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Them san pham</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
+
+
+
+
     </div>
     <!-- /.sidebar -->
 </aside>

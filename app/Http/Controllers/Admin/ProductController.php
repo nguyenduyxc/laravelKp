@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Services\Product\ProductAdminService;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,6 +13,13 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    protected $productAdminServices;
+    public function __construct(ProductAdminService $productAdminServices)
+    {
+        $this->productAdminServices = $productAdminServices;
+    }
+
     public function index()
     {
         //
@@ -24,7 +32,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+//        dd($this->productAdminServices->getMenu());
+        return view('admin.product.create', [
+            'title' => 'Them san pham',
+            'menus' => $this->productAdminServices->getMenu()
+        ]);
     }
 
     /**
