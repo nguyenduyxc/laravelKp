@@ -14,12 +14,12 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="name">Ten san pham</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Nhap ten san pham">
+                        <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" placeholder="Nhap ten san pham">
                     </div>
                     <!-- /.form-group -->
                     <div class="form-group">
                         <label for="price">Gia goc</label>
-                        <input type="number" class="form-control" name="price" value="0" id="price">
+                        <input type="number" class="form-control" name="price" min="0" value="{{ old('price') }}" id="price">
                     </div>
                     <!-- /.form-group -->
                 </div>
@@ -27,7 +27,7 @@
                 <div class="col-md-6" data-select2-id="30">
                     <div class="form-group">
                         <label for="menu_id">Danh muc</label>
-                        <select id="cars" name="cars" class="form-control" name="menu_id" id="menu_id">
+                        <select  class="form-control" name="menu_id" id="menu_id">
                             @foreach($menus as $menu)
                                 <option value="{{$menu->id}}">{{$menu->name}}</option>
                             @endforeach
@@ -36,7 +36,7 @@
                     <!-- /.form-group -->
                     <div class="form-group">
                         <label for="price_sale">Gia giam</label>
-                        <input type="number" class="form-control" name="price_sale" value="0" id="price_sale">
+                        <input type="number" class="form-control" min="0" name="price_sale" value="{{ old('price_sale') }}" id="price_sale">
                     </div>
                 </div>
                 <!-- /.col -->
@@ -45,12 +45,12 @@
 
             <div class="form-group">
                 <label for="description">Mo ta</label>
-                <textarea type="text" class="form-control" name="description" id="description" placeholder="Mo ta"></textarea>
+                <textarea type="text" class="form-control" name="description" id="description" placeholder="Mo ta">{{ old('description') }}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="content">Mo ta chi tiet</label>
-                <textarea type="text" class="form-control" name="content" id="content" placeholder="Mo ta chi tiet"></textarea>
+                <textarea type="text" class="form-control" name="content" id="content" placeholder="Mo ta chi tiet">{{ old('content') }}</textarea>
             </div>
 
 
@@ -60,7 +60,7 @@
                 <div id="image_show">
 
                 </div>
-                <input type="hidden" name="file" id="file">
+                <input type="hidden" name="thumn" id="thumb">
             </div>
 
             <div class="form-group">
