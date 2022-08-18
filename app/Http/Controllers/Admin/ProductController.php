@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\CreateProductRequest;
+use App\Http\Requests\Product\UpdateProductRequest;
 use App\Http\Services\Product\ProductAdminService;
 use App\Models\Product;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -93,9 +95,16 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+//        dd($request->all());
+        $result = $this->productAdminServices->update($request, $product);
+//        dd($result);
+        if ($result){
+//            dd($result);
+            return redirect('/admin/products/list');
+        }
+        return redirect()->back();
     }
 
     /**
@@ -104,8 +113,17 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request): JsonResponse
     {
-        //
+        $result = $this->productAdminServices->destroy($request);
+        if($result){
+            return response()->json([
+                'error' => false,
+                'message' => 'Xoa thanh cong san pham hehe'
+            ]);
+        }
+        return response()->json([
+            'error' => true
+        ]);
     }
 }

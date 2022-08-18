@@ -51,4 +51,30 @@ class ProductAdminService
         }
         return true;
     }
+
+    public function update($request, $product)
+    {
+        $isValidPrice = $this->isValidPrice($request);
+        if($isValidPrice === false) return false;
+        try {
+            $product->fill($request->input());
+            $product->save();
+            Session::flash('success', 'Cap nhat san pham thanh cong');
+        }catch (\Exception $error){
+            \Log::info($error->getMessage());
+            Session::flash('error', 'Cap nhat san pham loi');
+            return false;
+        }
+        return true;
+    }
+
+    public function destroy($request)
+    {
+        $id = (int) $request->input('id');
+        $product = Product::where('id', $id)->first();
+        if($product){
+            return $product->delete();
+        }
+        return  false;
+    }
 }
