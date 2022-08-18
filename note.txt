@@ -8,7 +8,7 @@ php artisan make:controller Admin\Users\LoginController -m: tao controller va mo
 php artisan make:model --migration --controller Menu: tao model, controller, model
 
 php artisan make:controller Admin\ProductController --resource : tao controller vs crud
-php artisan make:model product -m: tao migartion vs model
+php artisan make:model Slider -migration: tao migration vs model
 
 update migration:
 php artisan make:migration update_table_product: tao migration moi

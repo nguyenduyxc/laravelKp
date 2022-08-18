@@ -36,7 +36,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                {{--            danh muc--}}
+{{--    sliderbar   danh muc--}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="fas fa-bars"></i> &nbsp;
@@ -60,13 +60,14 @@
                         </li>
                     </ul>
                 </li>
+{{--        end sliderbar   danh muc--}}
 
-{{--                san pham --}}
+{{--            sliderbar    san pham --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="fa-solid fa-house"></i> &nbsp;
                         <p>
-                            san pham
+                            San pham
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -85,6 +86,35 @@
                         </li>
                     </ul>
                 </li>
+{{--    end   sliderbar    san pham --}}
+
+
+{{--       sliderbar   slider --}}
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-images"></i> &nbsp;
+                        <p>
+                            Slider
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.sliders.list')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sach slider</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.sliders.add')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Them slider</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+{{--    end   sliderbar slider --}}
+
 
             </ul>
         </nav>

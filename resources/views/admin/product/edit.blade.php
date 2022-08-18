@@ -80,7 +80,7 @@
 
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Them san pham</button>
+            <button type="submit" class="btn btn-primary">Sua san pham</button>
         </div>
     </form>
 @endsection

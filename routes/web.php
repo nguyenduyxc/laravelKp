@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Users\LoginController;
 use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SliderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,12 +38,22 @@ Route::middleware(['auth'])->group(function () {
 
 //        product
         Route::prefix('products')->group(function () {
-            Route::get('/add', [\App\Http\Controllers\Admin\ProductController::class, 'create'])->name('admin.products.add');
-            Route::post('/add', [\App\Http\Controllers\Admin\ProductController::class, 'store']);
-            Route::get('/list', [\App\Http\Controllers\Admin\ProductController::class, 'index'])->name('admin.products.list');
-            Route::get('/edit/{product}', [\App\Http\Controllers\Admin\ProductController::class, 'edit'])->name('admin.products.edit');
-            Route::post('/edit/{product}', [\App\Http\Controllers\Admin\ProductController::class, 'update']);
-            Route::DELETE('/destroy', [\App\Http\Controllers\Admin\ProductController::class, 'destroy']);
+            Route::get('/add', [ProductController::class, 'create'])->name('admin.products.add');
+            Route::post('/add', [ProductController::class, 'store']);
+            Route::get('/list', [ProductController::class, 'index'])->name('admin.products.list');
+            Route::get('/edit/{product}', [ProductController::class, 'edit'])->name('admin.products.edit');
+            Route::post('/edit/{product}', [ProductController::class, 'update']);
+            Route::DELETE('/destroy', [ProductController::class, 'destroy']);
+        });
+
+        //        slider
+        Route::prefix('sliders')->group(function () {
+            Route::get('/add', [SliderController::class, 'create'])->name('admin.sliders.add');
+            Route::post('/add', [SliderController::class, 'store']);
+            Route::get('/list', [SliderController::class, 'index'])->name('admin.sliders.list');
+            Route::get('/edit/{slider}', [SliderController::class, 'edit'])->name('admin.sliders.edit');
+            Route::post('/edit/{slider}', [SliderController::class, 'update']);
+            Route::DELETE('/destroy', [SliderController::class, 'destroy']);
         });
 
 //            upload
