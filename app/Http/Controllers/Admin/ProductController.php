@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\CreateProductRequest;
 use App\Http\Services\Product\ProductAdminService;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -74,10 +75,16 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+//        dd('Sua  san pham '. $product->name);
+        return view('admin.product.edit',[
+            'title' => 'Sua  san pham'. $product->name,
+            'menus' => $this->productAdminServices->getMenu(),
+            'product' => $product
+        ]);
     }
+
 
     /**
      * Update the specified resource in storage.

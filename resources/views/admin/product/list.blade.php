@@ -25,7 +25,7 @@
                 <td>{!! \App\Helpers\Helper::active($product->active) !!}</td>
                 <td>{{$product->updated_at}}</td>
                 <td>
-                    <a href="/admin/products/edit/{{$product->id}}'" class="btn btn-primary btn-sm">
+                    <a href="/admin/products/edit/{{$product->id}}" class="btn btn-primary btn-sm">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
 

@@ -39,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/add', [\App\Http\Controllers\Admin\ProductController::class, 'create'])->name('admin.products.add');
             Route::post('/add', [\App\Http\Controllers\Admin\ProductController::class, 'store']);
             Route::get('/list', [\App\Http\Controllers\Admin\ProductController::class, 'index'])->name('admin.products.list');
+            Route::get('/edit/{product}', [\App\Http\Controllers\Admin\ProductController::class, 'edit'])->name('admin.products.edit');
         });
 
 //            upload
