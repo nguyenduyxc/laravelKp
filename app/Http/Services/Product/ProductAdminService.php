@@ -13,6 +13,11 @@ class ProductAdminService
         return Menu::where('active', 1)->get();
     }
 
+    public function getProducts()
+    {
+        return Product::with('menu')->orderByDesc('id')->paginate(15);
+    }
+
     public function isValidPrice($request)
     {
         if(($request->input('price') !=0 && $request->input('price_sale') !=0)

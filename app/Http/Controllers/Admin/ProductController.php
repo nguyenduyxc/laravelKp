@@ -23,7 +23,11 @@ class ProductController extends Controller
 
     public function index()
     {
-        //
+//        dd($this->productAdminServices->getProducts()[0]->id);
+        return view('admin.product.list', [
+            'title' => 'Danh sach san pham ',
+            'products'=>$this->productAdminServices->getProducts()
+        ]);
     }
 
     /**

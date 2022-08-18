@@ -57,3 +57,12 @@ upload file
                   'public/uploads/' . date('Y/m/d'), $name
               );
 
+
+
+Xem loi:
+    D:\laragon\www\shopkp\storage\logs\laravel.log
+
+
+Phan trang
+        file blade: {!! $products->links() !!}
+        file services/controller:  return Product::with('menu')->orderByDesc('id')->paginate(15);
