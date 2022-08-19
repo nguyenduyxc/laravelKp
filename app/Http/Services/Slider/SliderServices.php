@@ -19,4 +19,9 @@ class SliderServices
         }
         return true;
     }
+
+    public function get()
+    {
+        return Slider::orderBy('id', 'desc')->paginate(15);
+    }
 }

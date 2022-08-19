@@ -22,7 +22,11 @@ class SliderController extends Controller
      */
     public function index()
     {
-        //
+//        dd($this->sliderService->get());
+        return view('admin.slider.list', [
+            'title'=>'Danh sach slider moi nhat',
+            'sliders' => $this->sliderService->get(),
+        ]);
     }
 
     /**
