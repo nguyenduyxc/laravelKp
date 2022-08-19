@@ -108,8 +108,19 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $result = $this->sliderService->destroy($request);
+        if ($result)
+        {
+            dd('duy');
+            return response()->json([
+                'error' => false,
+                'message' => 'Xoa slider thanh cong'
+            ]);
+            return response()->json([
+                'error' => true
+            ]);
+        }
     }
 }

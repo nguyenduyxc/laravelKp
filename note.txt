@@ -66,3 +66,5 @@ Xem loi:
 Phan trang
         file blade: {!! $products->links() !!}
         file services/controller:  return Product::with('menu')->orderByDesc('id')->paginate(15);
+
+check khi xoa: xem network xem prview(xem dd ra cai gi)
