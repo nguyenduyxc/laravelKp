@@ -1,8 +1,4 @@
-@if(Session::has('thongbaodangnhap'))
-    <div class="alert alert-success">
-        {{ Session::get('thongbaodangnhap') }}
-    </div>
-@endif
+
 
 <!DOCTYPE html>
 <html lang="en">
