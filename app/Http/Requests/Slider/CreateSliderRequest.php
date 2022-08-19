@@ -27,7 +27,16 @@ class CreateSliderRequest extends FormRequest
             'name'=>'required',
             'thumb'=>'required',
             'sort_by'=>'required',
-            'active'=>'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'A name is required',
+            'thumb.required' => 'A message is required',
+            'sort_by.required' => 'A sort_by is required',
+        ];
+    }
+
 }

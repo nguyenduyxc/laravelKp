@@ -24,4 +24,18 @@ class SliderServices
     {
         return Slider::orderBy('id', 'desc')->paginate(15);
     }
+
+    public function update($request, $slider)
+    {
+        try {
+            $slider->fill($request->input());
+            $slider->save();
+            Session::flash('success', 'Cap nhat slider thanh cong');
+        }catch (\Exception $err){
+            \Log::info($err->getMessage());
+            Session::flash('error', 'Cap nhat slider loi');
+            return false;
+        }
+        return true;
+    }
 }

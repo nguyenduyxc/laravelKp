@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Slider\CreateSliderRequest;
 use App\Http\Services\Slider\SliderServices;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
@@ -72,10 +73,15 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Slider $slider)
     {
-        //
+//        dd('Cap nhat slider '. $slider->name);
+        return view('admin.slider.edit', [
+            'title' => 'Cap nhat slider '. $slider->name,
+            'slider' => $slider
+        ]);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -84,9 +90,16 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateSliderRequest $request, Slider $slider)
     {
-        //
+//        dd($slider);
+//        dd($request->input());
+         $result = $this->sliderService->update($request, $slider);
+         if($result)
+         {
+             return redirect('/admin/sliders/list');
+         }
+         return redirect()->back();
     }
 
     /**
