@@ -116,6 +116,7 @@ class ProductController extends Controller
     public function destroy(Request $request): JsonResponse
     {
         $result = $this->productAdminServices->destroy($request);
+//        dd($result);
         if($result){
             return response()->json([
                 'error' => false,
@@ -123,7 +124,7 @@ class ProductController extends Controller
             ]);
         }
         return response()->json([
-            'error' => true
+            'error' => true,
         ]);
     }
 }

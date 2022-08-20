@@ -68,3 +68,7 @@ Phan trang
         file services/controller:  return Product::with('menu')->orderByDesc('id')->paginate(15);
 
 check khi xoa: xem network xem prview(xem dd ra cai gi)
+
+View Composers: cho cac phan view ma ko can pahi lay lai nhieu tu Db, menu, footer
+    + nho khia bao trong config app(+ nho khia bao trong config app()
+)

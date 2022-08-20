@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Helpers;
-
+use Illuminate\Support\Str;
 class Helper
 {
     public static function menu($menus, $parent_id = 0, $char = '')
@@ -41,5 +41,41 @@ class Helper
     {
         return $active == 1 ? '<span class="btn btn-sm btn-primary">yes</span>'
             : '<span class="btn btn-sm btn-danger">no</span>';
+    }
+
+    public function menuHeader($menus, $parent_id = 0)
+    {
+        $html ='';
+        foreach ($menus as $key => $menu)
+        {
+            if($menu->parent_id == $parent_id)
+            {
+                $html .= '
+                    <li>
+                        <a href="/danh-muc/'.$menu->id.'-'.$slug = Str::slug($menu->name, '-').'.html">'.$menu->name.' </a>';
+
+                    unset($menus[$key]);
+                    if (self::isChild($menus, $menu->parent_id))
+                    {
+                        $html .= '<ul class="sub-menu">';
+                        $html .= self::menuHeader($menus, $menu->id);
+                        $html .= '</ul>';
+                    }
+
+                $html .='</li>';
+            }
+        }
+        return $html;
+    }
+
+    public function isChild($menus, $id):bool
+    {
+        foreach ($menus as $menu)
+        {
+            if ($menu->parent_id == $id){
+                return true;
+            }
+        }
+        return false;
     }
 }
