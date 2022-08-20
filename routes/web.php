@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\SliderController;
 |
 */
 
+
 Route::get('admin/users/login', [LoginController::class,'index'])->name('login');
 Route::post('admin/users/login/store', [LoginController::class,'store']);
 
@@ -60,3 +61,5 @@ Route::middleware(['auth'])->group(function () {
         Route::post('upload/services', [\App\Http\Controllers\Admin\UploadController::class, 'store']);
     });
 });
+
+Route::get('/', [\App\Http\Controllers\MainController::class, 'index']);
