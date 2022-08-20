@@ -43,7 +43,7 @@ class Helper
             : '<span class="btn btn-sm btn-danger">no</span>';
     }
 
-    public function menuHeader($menus, $parent_id = 0)
+    public static function menuHeader($menus, $parent_id = 0)
     {
         $html ='';
         foreach ($menus as $key => $menu)
@@ -68,7 +68,7 @@ class Helper
         return $html;
     }
 
-    public function isChild($menus, $id):bool
+    public static function isChild($menus, $id):bool
     {
         foreach ($menus as $menu)
         {
