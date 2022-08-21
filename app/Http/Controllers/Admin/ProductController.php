@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function index()
     {
 //        dd($this->productAdminServices->getProducts()[0]->id);
-        return view('admin.product.list', [
+        return view('admin.products.list', [
             'title' => 'Danh sach san pham ',
             'products'=>$this->productAdminServices->getProducts()
         ]);
@@ -41,7 +41,7 @@ class ProductController extends Controller
     public function create()
     {
 //        dd($this->productAdminServices->getMenu());
-        return view('admin.product.create', [
+        return view('admin.products.create', [
             'title' => 'Them san pham',
             'menus' => $this->productAdminServices->getMenu()
         ]);
@@ -79,11 +79,11 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-//        dd('Sua  san pham '. $product->name);
-        return view('admin.product.edit',[
+//        dd('Sua  san pham '. $products->name);
+        return view('admin.products.edit',[
             'title' => 'Sua  san pham'. $product->name,
             'menus' => $this->productAdminServices->getMenu(),
-            'product' => $product
+            'products' => $product
         ]);
     }
 

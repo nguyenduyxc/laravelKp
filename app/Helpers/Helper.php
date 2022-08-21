@@ -78,4 +78,11 @@ class Helper
         }
         return false;
     }
+
+    public static function price($price =0, $price_sale = 0)
+    {
+        if ($price !=0) return number_format($price);
+        if ($price_sale !=0) return number_format($price_sale);
+        return '<a href="/lien-he.html">Lien he</a>';
+    }
 }

@@ -37,13 +37,13 @@ Route::middleware(['auth'])->group(function () {
         });
 
 
-//        product
+//        products
         Route::prefix('products')->group(function () {
             Route::get('/add', [ProductController::class, 'create'])->name('admin.products.add');
             Route::post('/add', [ProductController::class, 'store']);
             Route::get('/list', [ProductController::class, 'index'])->name('admin.products.list');
-            Route::get('/edit/{product}', [ProductController::class, 'edit'])->name('admin.products.edit');
-            Route::post('/edit/{product}', [ProductController::class, 'update']);
+            Route::get('/edit/{products}', [ProductController::class, 'edit'])->name('admin.products.edit');
+            Route::post('/edit/{products}', [ProductController::class, 'update']);
             Route::DELETE('/destroy', [ProductController::class, 'destroy']);
         });
 
