@@ -25,5 +25,8 @@
 
         </tbody>
     </table>
+    <div class="card-footer clearfix">
+        {!! $menus->links() !!}
+    </div>
 @endsection
 

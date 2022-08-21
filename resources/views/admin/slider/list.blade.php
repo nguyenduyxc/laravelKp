@@ -43,6 +43,8 @@
 
         </tbody>
     </table>
-    {!! $sliders->links() !!}
+    <div class="card-footer clearfix">
+        {!! $sliders->links() !!}
+    </div>
 @endsection
 
