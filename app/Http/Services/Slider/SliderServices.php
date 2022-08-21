@@ -21,6 +21,11 @@ class SliderServices
         return true;
     }
 
+    public function show()
+    {
+        return Slider::where('active', 1)->orderByDesc('sort_by')->get();
+    }
+
     public function get()
     {
         return Slider::orderBy('id', 'desc')->paginate(15);

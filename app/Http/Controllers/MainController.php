@@ -3,9 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Services\Slider\SliderServices;
+use App\Http\Services\Menu\MenuService;
 
 class MainController extends Controller
 {
+    protected  $sliders;
+    protected $menus;
+    public function __construct(SliderServices $sliders, MenuService $menus)
+    {
+        $this->sliders = $sliders;
+        $this->menus = $menus;
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +24,16 @@ class MainController extends Controller
      */
     public function index()
     {
-        return view('main');
+//        dd($this->sliders->show());
+//        dd($this->menus->show());
+        return view('main',
+            [
+                'title' => 'Shop nuoc hoa',
+                'sliders' => $this->sliders->show(),
+                'menus' => $this->menus->show()
+            ]
+
+        );
     }
 
     /**
