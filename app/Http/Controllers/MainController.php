@@ -28,7 +28,7 @@ class MainController extends Controller
      */
     public function index()
     {
-//        dd( $this->products->get()[1]);
+//        dd( $this->products->get());
 //        dd($this->sliders->show());
 //        dd($this->menus->show());
         return view('main',
@@ -38,10 +38,20 @@ class MainController extends Controller
                 'menus' => $this->menus->show(),
                 'products' => $this->products->get()
             ]
-
         );
     }
 
+    public function loadProduct(Request $request)
+    {
+        $page = $request->input('page', 0);
+        $result = $this->products->get($page);
+//        dd($result);
+        if(count($result) !== 0 ){
+            $html = view('products.list', ['products' => $result] )->render();
+            return response()->json(['html' => $html]);
+        }
+        return response()->json(['html' => '']);
+    }
     /**
      * Show the form for creating a new resource.
      *

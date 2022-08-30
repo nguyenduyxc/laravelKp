@@ -64,3 +64,5 @@ Route::middleware(['auth'])->group(function () {
 
 # client
 Route::get('/', [\App\Http\Controllers\MainController::class, 'index']);
+
+Route::get('/services/load-more/', [\App\Http\Controllers\MainController::class, 'loadProduct']);
