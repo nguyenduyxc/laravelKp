@@ -66,4 +66,22 @@ class MenuService
             Session::flash('success', 'Cap nhat thanh cong');
             return true;
     }
+
+    public function getMenuId($id)
+    {
+        return Menu::where('id', $id)->firstOrFail();
+    }
+
+    public function getProductByMenu($menu, $request)
+    {
+        $query = $menu->products()->select('id', 'name', 'price', 'price_sale', 'thumn')
+            ->where('active', 1);
+        if ($request->input('price')){
+//            dd($request->input('price'));
+            return $query->orderBy('price', $request->input('price'))->paginate(12)->withQueryString();
+        }
+        return $query
+            ->orderByDesc('id')
+            ->paginate(12)->withQueryString();
+    }
 }

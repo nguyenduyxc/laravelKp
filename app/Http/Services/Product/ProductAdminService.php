@@ -15,7 +15,7 @@ class ProductAdminService
 
     public function getProducts()
     {
-        return Product::with('menu')->orderByDesc('id')->paginate(15);
+        return Product::with('menu')->orderByDesc('id')->paginate(12);
     }
 
     public function isValidPrice($request)

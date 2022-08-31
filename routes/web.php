@@ -19,6 +19,10 @@ use App\Http\Controllers\Admin\SliderController;
 
 
 Route::get('admin/users/login', [LoginController::class,'index'])->name('login');
+Route::get('admin/', function (){
+    return redirect('admin/users/login');
+});
+
 Route::post('admin/users/login/store', [LoginController::class,'store']);
 
 Route::middleware(['auth'])->group(function () {
@@ -66,3 +70,5 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/', [\App\Http\Controllers\MainController::class, 'index']);
 
 Route::get('/services/load-more/', [\App\Http\Controllers\MainController::class, 'loadProduct']);
+
+Route::get('/danh-muc/{id}-{slug}.html', [\App\Http\Controllers\MenuController::class, 'index']);

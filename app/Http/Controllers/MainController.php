@@ -31,7 +31,7 @@ class MainController extends Controller
 //        dd( $this->products->get());
 //        dd($this->sliders->show());
 //        dd($this->menus->show());
-        return view('main',
+        return view('home',
             [
                 'title' => 'Shop nuoc hoa',
                 'sliders' => $this->sliders->show(),
