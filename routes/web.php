@@ -46,8 +46,8 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/add', [ProductController::class, 'create'])->name('admin.products.add');
             Route::post('/add', [ProductController::class, 'store']);
             Route::get('/list', [ProductController::class, 'index'])->name('admin.products.list');
-            Route::get('/edit/{products}', [ProductController::class, 'edit'])->name('admin.products.edit');
-            Route::post('/edit/{products}', [ProductController::class, 'update']);
+            Route::get('/edit/{product}', [ProductController::class, 'edit'])->name('admin.products.edit');
+            Route::post('/edit/{product}', [ProductController::class, 'update']);
             Route::DELETE('/destroy', [ProductController::class, 'destroy']);
         });
 
@@ -72,3 +72,5 @@ Route::get('/', [\App\Http\Controllers\MainController::class, 'index']);
 Route::get('/services/load-more/', [\App\Http\Controllers\MainController::class, 'loadProduct']);
 
 Route::get('/danh-muc/{id}-{slug}.html', [\App\Http\Controllers\MenuController::class, 'index']);
+
+Route::get('/san-pham/{id}-{slug}.html', [\App\Http\Controllers\ProductController::class, 'index']);

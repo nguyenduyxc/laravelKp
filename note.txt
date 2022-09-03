@@ -72,3 +72,7 @@ check khi xoa: xem network xem prview(xem dd ra cai gi)
 View Composers: cho cac phan view ma ko can pahi lay lai nhieu tu Db, menu, footer
     + nho khia bao trong config app(+ nho khia bao trong config app()
 )
+
+
+laravel debugbar: cho phan debug
+    https://github.com/barryvdh/laravel-debugbar

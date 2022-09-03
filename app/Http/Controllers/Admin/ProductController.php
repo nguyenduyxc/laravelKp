@@ -80,10 +80,10 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
 //        dd('Sua  san pham '. $products->name);
-        return view('admin.products.edit',[
+        return view('admin.product.edit',[
             'title' => 'Sua  san pham'. $product->name,
             'menus' => $this->productAdminServices->getMenu(),
-            'products' => $product
+            'product' => $product
         ]);
     }
 
