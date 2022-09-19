@@ -76,3 +76,8 @@ View Composers: cho cac phan view ma ko can pahi lay lai nhieu tu Db, menu, foot
 
 laravel debugbar: cho phan debug
     https://github.com/barryvdh/laravel-debugbar
+
+
+
+How to fix
+    button add cart
