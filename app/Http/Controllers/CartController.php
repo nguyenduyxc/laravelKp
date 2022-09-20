@@ -51,4 +51,17 @@ class CartController extends Controller
         $this->cartService->delete($id);
         return redirect('/carts');
     }
+
+    public function addCart(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'email' => 'required',
+            'content' => 'required',
+        ]);
+        $this->cartService->addCart($request);
+        return redirect('/carts');
+    }
 }

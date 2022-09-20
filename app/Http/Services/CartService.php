@@ -2,8 +2,11 @@
 
 namespace App\Http\Services;
 
+use App\Models\Cart;
+use App\Models\Customer;
 use App\Models\Product;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class CartService
@@ -71,5 +74,60 @@ class CartService
         unset($carts[$id]);
         Session::put('carts', $carts);
         return true;
+    }
+
+    public function addCart($request)
+    {
+        try {
+            DB::beginTransaction();
+            $carts = Session::get('carts');
+            if (is_null($carts)) return false;
+            $customer = Customer::create([
+                'name' => $request->name,
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'email' => $request->email,
+                'content' => $request->content,
+            ]);
+            $this->infoProductCarts($carts, $customer->id);
+
+            DB::commit();
+            Session::flash('success', 'dat hang thanh cong');
+
+            Session::forget('carts');
+        }catch (\Exception $error)
+        {
+            DB::rollBack();
+            Session::flash('error', 'Dat hang loi');
+            return $error->getMessage();
+        }
+
+        return true;
+    }
+
+    public function infoProductCarts($carts, $customer_id)
+    {
+
+        $productId = array_keys($carts);
+
+        $products = Product::select('id', 'name', 'price', 'price_sale', 'thumn')
+            ->where('active', 1)
+            ->whereIn('id', $productId)
+            ->get();
+
+        $data = [];
+        foreach ($products as $key => $product)
+        {
+            $price = $product->price_sale != 0 ? $product->price_sale : $product->price;
+            $pty = $carts[$product->id];
+            $data[] = [
+                'customer_id' => $customer_id,
+                'product_id' => $product->id,
+                'pty' => $pty,
+                'price' => $price ,
+            ];
+        }
+
+        return Cart::insert($data);
     }
 }

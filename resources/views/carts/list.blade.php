@@ -73,6 +73,7 @@
                             @csrf
                         </div>
                     </div>
+
                 </div>
 
                 <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
@@ -95,14 +96,49 @@
                             </div>
                         </div>
 
+                        <div> <hr> </div>
+
+                        <div class="flex-w flex-t bor12 p-t-15 p-b-30">
+                            <div class="size-209  p-r-0-sm w-full-ssm">
+                                <span class="stext-110 cl2">
+									Thong tin khach hang
+								</span>
+
+                                <div class="p-t-15">
+                                    <div class="bor8 bg0 m-b-22">
+                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" placeholder="Ten khach hang" >
+                                    </div>
+
+                                    <div class="bor8 bg0 m-b-22">
+                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="phone" placeholder="Sdt khach hang" >
+                                    </div>
+
+                                    <div class="bor8 bg0 m-b-22">
+                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address" placeholder="Dia chi giao hang">
+                                    </div>
+
+                                    <div class="bor8 bg0 m-b-22">
+                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="email" placeholder="Email lien he">
+                                    </div>
+
+                                    <div class="bor8 bg0 m-b-22">
+                                        <label class="text-info">Them ghi chu</label>
+                                        <textarea class="stext-111 cl8 plh3 size-111 p-lr-15" name="content"> </textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
                         <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                            Proceed to Checkout
+                            Dat hang
                         </button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
+    @extends('admin.alert')
     @else
         <div class="text-center"> <h2>Gio hang trong</h2></div>
     @endif

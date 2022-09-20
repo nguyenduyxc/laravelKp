@@ -14,6 +14,9 @@
         @php
             $carts = \Illuminate\Support\Facades\Session::get('carts');
             $sumPrice = 0;
+            if (!isset($productCarts)){
+                $productCarts = [];
+            }
         @endphp
         @if(count($productCarts) > 0)
             <div class="header-cart-content flex-w js-pscroll">
