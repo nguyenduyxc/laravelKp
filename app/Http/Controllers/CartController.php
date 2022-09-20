@@ -45,4 +45,10 @@ class CartController extends Controller
         $this->cartService->update($request);
         return redirect('/carts');
     }
+
+    public function delete($id)
+    {
+        $this->cartService->delete($id);
+        return redirect('/carts');
+    }
 }

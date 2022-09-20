@@ -19,6 +19,7 @@
                                     <th class="column-3">Price</th>
                                     <th class="column-4">Quantity</th>
                                     <th class="column-5">Total</th>
+                                    <th class="column-3">Action</th>
                                 </tr>
 
                                 @foreach($products as $key => $product)
@@ -42,7 +43,7 @@
                                                     <i class="fs-16 zmdi zmdi-minus"></i>
                                                 </div>
 
-                                                <input class="mtext-104 cl3 txt-center num-product" type="number" name="num_product[{{ $product->id }}]" value="{{ $carts[$product->id] }}">
+                                                <input class="mtext-104 cl3 txt-center num-product" type="number" name="num_product[{{ $product->id }}]" min="0" value="{{ $carts[$product->id] }}">
 
                                                 <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                                                     <i class="fs-16 zmdi zmdi-plus"></i>
@@ -50,6 +51,7 @@
                                             </div>
                                         </td>
                                         <td class="column-5">{{ number_format($priceProduct) }}</td>
+                                        <td class="column-3"><a href="/carts/delete/{{ $product->id }}">Xoa</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

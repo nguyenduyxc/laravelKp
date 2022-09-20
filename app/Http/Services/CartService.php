@@ -64,4 +64,12 @@ class CartService
         $carts = Session::put('carts', $request->input('num_product'));
         return true;
     }
+
+    public function delete($id)
+    {
+        $carts = Session::get('carts');
+        unset($carts[$id]);
+        Session::put('carts', $carts);
+        return true;
+    }
 }
