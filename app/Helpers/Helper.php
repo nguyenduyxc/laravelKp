@@ -45,26 +45,27 @@ class Helper
 
     public static function menuHeader($menus, $parent_id = 0)
     {
-        $html ='';
-        foreach ($menus as $key => $menu)
-        {
-            if($menu->parent_id == $parent_id)
-            {
+        $html = '';
+        foreach ($menus as $key => $menu) {
+            if ($menu->parent_id == $parent_id) {
                 $html .= '
                     <li>
-                        <a href="/danh-muc/'.$menu->id.'-'.$slug = Str::slug($menu->name, '-').'.html">'.$menu->name.' </a>';
+                        <a href="/danh-muc/' . $menu->id . '-' . Str::slug($menu->name, '-') . '.html">
+                            ' . $menu->name . '
+                        </a>';
 
-                    unset($menus[$key]);
-                    if (self::isChild($menus, $menu->parent_id))
-                    {
-                        $html .= '<ul class="sub-menu">';
-                        $html .= self::menuHeader($menus, $menu->id);
-                        $html .= '</ul>';
-                    }
+                unset($menus[$key]);
 
-                $html .='</li>';
+                if (self::isChild($menus, $menu->id)) {
+                    $html .= '<ul class="sub-menu">';
+                    $html .= self::menuHeader($menus, $menu->id);
+                    $html .= '</ul>';
+                }
+
+                $html .= '</li>';
             }
         }
+
         return $html;
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Services\Menu;
 
 use App\Models\Menu;
+use App\Models\Product;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
@@ -78,6 +79,26 @@ class MenuService
             ->where('active', 1);
         if ($request->input('price')){
 //            dd($request->input('price'));
+            return $query->orderBy('price', $request->input('price'))->paginate(12)->withQueryString();
+        }
+        return $query
+            ->orderByDesc('id')
+            ->paginate(12)->withQueryString();
+    }
+
+    public function getProductByMenu0($menu, $request)
+    {
+        $menuChilds = Menu::select('id')->where('parent_id', $menu->id)->get();
+//        dd($menuChilds->all()[0]->id);
+        $menuIds = [$menu->id];
+        foreach ($menuChilds->all() as $menuChild)
+        {
+            $menuIds[] = $menuChild->id;
+        }
+//        dd($menuIds);
+        $query = Product::select('id', 'name', 'price', 'price_sale', 'thumn')->whereIn('menu_id', $menuIds)
+            ->where('active', 1);
+        if ($request->input('price')){
             return $query->orderBy('price', $request->input('price'))->paginate(12)->withQueryString();
         }
         return $query
